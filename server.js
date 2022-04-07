@@ -74,7 +74,7 @@ router.post('/signin', function (req, res) {
 router
     .route('/movies/search') // route for movies search
     .get(authJwtController.isAuthenticated, function (req, res) {
-        let searchStr = new RegExp(req.body.searchStr, 'i');
+        let searchStr = new RegExp(req.query['k'], 'i');
         if ('reviews' in req.query && req.query['reviews'] === 'true') {
             Movie.aggregate([
                 {

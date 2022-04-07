@@ -639,8 +639,7 @@ describe('All Tests', () => {
         });
         it('it should get movies based on the search string', (done) => {
             chai.request(server)
-                .get('/movies/search?reviews=true')
-                .send({ searchStr: 'The ' })
+                .get('/movies/search?k=The S&reviews=true')
                 .set('Authorization', token)
                 .end((err, res) => {
                     console.log(res.body);
@@ -649,8 +648,7 @@ describe('All Tests', () => {
         });
         it('it should get movies based on the search string in actors', (done) => {
             chai.request(server)
-                .get('/movies/search?reviews=true')
-                .send({ searchStr: 'Dan' })
+                .get('/movies/search?k=Dan&reviews=true')
                 .set('Authorization', token)
                 .end((err, res) => {
                     console.log(res.body);
