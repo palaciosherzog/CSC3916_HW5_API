@@ -138,11 +138,6 @@ router
                     $addFields: {
                         avgRating: { $avg: '$reviews.rating' }
                     }
-                },
-                {
-                    $sort: {
-                        avgRating: -1
-                    }
                 }
             ]).exec(function (err, movies) {
                 //console.log("match movies", movies.filter((m) => m.title === req.params['title']));
@@ -200,6 +195,11 @@ router
                 {
                     $addFields: {
                         avgRating: { $avg: '$reviews.rating' }
+                    }
+                },
+                {
+                    $sort: {
+                        avgRating: -1
                     }
                 }
             ]).exec(function (err, movies) {
